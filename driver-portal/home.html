@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DVATS | Driver Portal</title>
+    <link rel="icon" type="image/png" href="assets/logo-5.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f2f2f7;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* Pigilan ang buong page na gumalaw */
+            overflow: hidden;
+        }
+
+        /* === ROOT: full screen, flex column === */
+        #appRoot {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100dvh;
+            overflow: hidden; /* walang labasan ang scroll */
+        }
+
+        /* === HEADER: fixed height, hindi gumagalaw === */
+        #appHeader {
+            flex: 0 0 auto;
+        }
+
+        /* === MAIN: kumuha ng natitirang espasyo, CLIP ang labas === */
+        #mainContent {
+            flex: 1 1 0;
+            min-height: 0;        /* kailangan para sa flex */
+            overflow: hidden;     /* clip — walang makakatakas na scroll */
+            position: relative;
+        }
+
+        /* === BAWAT TAB: puno ng mainContent, scroll pataas-pababa LANG === */
+        .tab-content {
+            display: none;
+            position: absolute;
+            inset: 0;             /* top:0 left:0 right:0 bottom:0 */
+            overflow-y: auto;     /* vertical scroll ONLY sa loob */
+            overflow-x: hidden;   /* BAWAL ang sideways scroll */
+            -webkit-overflow-scrolling: touch;
+            padding: 8px 20px 110px 20px; /* 110px bottom = layo sa nav */
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* === NAV: fixed height sa dulo === */
+        #appNav {
+            flex: 0 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 0.5px solid rgba(0,0,0,0.1);
+            height: 85px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding-top: 12px;
+            z-index: 100;
+        }
+
+        /* === CARDS === */
+        .card-ios {
+            background: white;
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 16px;
+        }
+
+        /* === NAV ITEMS === */
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #8e8e93;
+            transition: all 0.2s ease;
+            width: 20%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .nav-item i { font-size: 22px; margin-bottom: 4px; }
+        .nav-item span { font-size: 10px; font-weight: 600; }
+        .nav-item.active { color: #007aff; }
+
+        /* === MODALS === */
+        .modal-slide-up {
+            transition: transform 0.3s ease-out;
+            transform: translateY(100%);
+        }
+        .modal-slide-up.active {
+            transform: translateY(0);
+        }
+
+        #ticketModalContent {
+            transition: transform 0.3s ease-out;
+            transform: translateY(100%);
+        }
+        #ticketModalContent.active {
+            transform: translateY(0);
+        }
+
+        /* === HIDE SCROLLBAR === */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+
+<div id="appRoot">
+
+    <!-- HEADER — hindi gumagalaw -->
+    <header id="appHeader" class="px-6 py-4 flex justify-between items-center bg-slate-50/80 backdrop-blur-md">
+        <div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Mabuhay!</p>
+            <h1 id="welcomeName" class="text-xl font-extrabold text-slate-900 tracking-tight">Driver</h1>
+        </div>
+        <button onclick="switchTab('notifications')" class="relative w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm active:scale-90 transition-transform">
+            <i class="fas fa-bell text-slate-600"></i>
+            <span id="notifDot" class="hidden absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+        </button>
+    </header>
+
+    <!-- MAIN — container ng mga tab -->
+    <main id="mainContent">
+
+        <!-- HOME TAB -->
+        <div id="home" class="tab-content active hide-scrollbar">
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="card-ios flex flex-col items-center justify-center text-center !mb-0">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase">Violations</p>
+                    <h3 id="countViolations" class="text-xl font-black">0</h3>
+                </div>
+                <div class="card-ios flex flex-col items-center justify-center text-center !mb-0">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase">Status</p>
+                    <h3 class="text-sm font-black text-emerald-600">ACTIVE</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-[2rem] p-6 text-white mb-6 shadow-lg">
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">Total Unpaid Fines</p>
+                <h2 id="totalFines" class="text-3xl font-black mb-4">₱ 0.00</h2>
+                <div class="w-full bg-slate-800/50 border border-slate-700 p-3 rounded-xl flex items-start gap-3">
+                    <div class="text-amber-400 mt-0.5"><i class="fas fa-info-circle text-[10px]"></i></div>
+                    <div>
+                        <p class="text-[9px] font-bold uppercase tracking-wider text-slate-300 mb-0.5">Payment Notice</p>
+                        <p class="text-[8px] text-slate-400 leading-relaxed uppercase font-medium">Settle balances at LTO to avoid penalties.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-4 px-1">Recent History</h4>
+            <div id="recentList" class="space-y-3"></div>
+
+        </div>
+
+        <!-- VIOLATIONS TAB -->
+        <div id="violations" class="tab-content hide-scrollbar">
+            <h4 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-4 px-1">Violation History</h4>
+            <div id="fullViolationList" class="space-y-3"></div>
+        </div>
+
+        <!-- BOOKING TAB -->
+        <div id="appointments" class="tab-content hide-scrollbar">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800">Appointments</h3>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">LTO Dasmariñas</p>
+                </div>
+                <button onclick="openBookingModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xs shadow-lg active:scale-95 transition-all">+ NEW</button>
+            </div>
+            <div id="appointmentList" class="space-y-4"></div>
+        </div>
+
+        <!-- NOTIFICATIONS TAB -->
+        <div id="notifications" class="tab-content hide-scrollbar">
+            <h4 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-4 px-1">Notifications</h4>
+            <div id="licenseAlert" class="hidden mb-4 p-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <p class="text-[10px] font-black text-amber-700 uppercase">License Expiration</p>
+                    <p id="expiryMessage" class="text-[9px] text-amber-800 font-medium"></p>
+                </div>
+            </div>
+            <div id="notifList" class="space-y-3"></div>
+        </div>
+
+        <!-- PROFILE TAB -->
+        <div id="profile" class="tab-content hide-scrollbar">
+            <div class="text-center mb-6">
+                <div class="relative inline-block">
+                    <input type="file" id="profileInput" class="hidden" accept="image/*" onchange="handleProfileUpload(event)">
+                    <div onclick="document.getElementById('profileInput').click()"
+                         class="cursor-pointer w-24 h-24 rounded-full p-1 bg-white shadow-lg mx-auto transition-transform hover:scale-105">
+                        <div id="profileDisplay" class="w-full h-full bg-slate-100 rounded-full flex items-center justify-center overflow-hidden">
+                            <i id="defaultUserIcon" class="fas fa-user text-3xl text-slate-300"></i>
+                        </div>
+                    </div>
+                </div>
+                <h2 id="profFullName" class="mt-3 font-extrabold text-lg text-slate-900 tracking-tight">Juan Dela Cruz</h2>
+                <p id="profLicense" class="text-[10px] font-bold text-red-600 uppercase tracking-[0.2em] mt-1">Lic: N01-23-456789</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-5 space-y-6">
+                <div>
+                    <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Personal Details</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                            <p class="text-[8px] font-black text-slate-400 uppercase mb-1">Date of Birth</p>
+                            <p id="profDOB" class="text-[11px] font-bold text-slate-700 truncate">01/01/1995</p>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                            <p class="text-[8px] font-black text-slate-400 uppercase mb-1">License Expiry</p>
+                            <p id="profExpiry" class="text-[11px] font-bold text-blue-600 truncate">12/31/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="toggleQRModal(true)" class="flex-[2] bg-slate-900 text-white py-3.5 rounded-2xl text-xs font-bold shadow-lg active:scale-95 transition-all">
+                        <i class="fas fa-qrcode mr-2"></i> Digital Pass
+                    </button>
+                    <button onclick="logout()" class="flex-1 bg-slate-100 text-slate-600 py-3.5 rounded-2xl text-xs font-bold hover:bg-red-50 hover:text-red-600 transition-all active:scale-95">
+                        Logout
+                    </button>
+                </div>
+
+                <div class="space-y-3 pt-2 border-t border-slate-100">
+                    <div class="bg-slate-50 p-4 rounded-2xl flex items-center justify-between cursor-pointer hover:bg-blue-50 transition-all">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-shield-alt text-blue-500 text-sm"></i>
+                            <span class="text-xs font-bold text-slate-700">Account Security</span>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 text-xs"></i>
+                    </div>
+                    <div onclick="openHelpCenter()" class="bg-slate-50 p-4 rounded-2xl flex items-center justify-between cursor-pointer hover:bg-blue-50 transition-all">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-info-circle text-slate-400 text-sm"></i>
+                            <span class="text-xs font-bold text-slate-700">LTO Help Center</span>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- NAV BAR — hindi gumagalaw -->
+    <nav id="appNav">
+        <button onclick="switchTab('home')" class="nav-item active" id="nav-home">
+            <i class="fas fa-home"></i><span>Home</span>
+        </button>
+        <button onclick="switchTab('violations')" class="nav-item" id="nav-violations">
+            <i class="fas fa-file-invoice"></i><span>Tickets</span>
+        </button>
+        <button onclick="switchTab('appointments')" class="nav-item" id="nav-appointments">
+            <i class="fas fa-calendar-alt"></i><span>Booking</span>
+        </button>
+        <button onclick="switchTab('profile')" class="nav-item" id="nav-profile">
+            <i class="fas fa-user"></i><span>Profile</span>
+        </button>
+    </nav>
+
+</div>
+
+<!-- MODALS -->
+<div id="bookingModal" class="fixed inset-0 z-[1000] hidden flex flex-col justify-end">
+    <div onclick="closeBookingModal()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+    <div id="bookingContent" class="modal-slide-up bg-white rounded-t-[3rem] p-8 shadow-2xl relative z-10">
+        <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-6"></div>
+        <h3 class="text-2xl font-bold text-slate-800 mb-2">Book Appointment</h3>
+        <form id="bookingForm" class="space-y-4">
+            <select id="serviceType" class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl font-semibold text-sm outline-none">
+                <option value="License Renewal">License Renewal</option>
+                <option value="Vehicle Registration">Vehicle Registration</option>
+            </select>
+            <input type="date" id="bookDate" class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl font-semibold text-sm outline-none">
+            <div class="flex gap-3 pt-4">
+                <button type="button" onclick="closeBookingModal()" class="flex-1 py-4 font-bold text-slate-400 bg-slate-100 rounded-2xl text-xs uppercase">Cancel</button>
+                <button type="submit" class="flex-1 py-4 font-bold text-white bg-blue-600 rounded-2xl text-xs uppercase">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="qrModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+    <div id="qrModalContent" class="bg-white w-full max-w-sm rounded-[2.5rem] overflow-hidden shadow-2xl scale-90 opacity-0 transition-all duration-300">
+        <div class="p-8 text-center">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-black text-slate-900 uppercase text-xs">Official LTO QR</h3>
+                <button onclick="toggleQRModal(false)"><i class="fas fa-times text-lg text-slate-400"></i></button>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 inline-block mb-6">
+                <img id="profQR" src="" class="w-56 h-56 mx-auto object-contain" alt="QR Code">
+            </div>
+            <p class="text-[10px] text-slate-400 font-bold uppercase">Present to LTO Enforcer for verification.</p>
+        </div>
+    </div>
+</div>
+
+<div id="ticketModal" class="fixed inset-0 z-[2000] hidden flex flex-col justify-end">
+    <div onclick="closeTicketModal()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+    <div id="ticketModalContent" class="modal-slide-up bg-white rounded-t-[3rem] p-8 shadow-2xl relative z-10 max-h-[80vh] overflow-y-auto hide-scrollbar">
+        <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-6"></div>
+        <h3 class="text-xl font-bold text-slate-800 mb-1">Citation Details</h3>
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6" id="modalTicketRef">---</p>
+        <div id="modalBody" class="space-y-4"></div>
+        <div class="pt-8">
+            <button onclick="closeTicketModal()" class="w-full py-4 font-bold text-white bg-slate-900 rounded-2xl text-xs uppercase">Close</button>
+        </div>
+    </div>
+</div>
+<script src="IosAlert.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DVATS | Government Enrollment</title>
+    <link rel="icon" type="image/png" href="assets/logo-5.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .step-hidden { display: none !important; }
+
+        .glass-card {
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .input-field {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #1e3a8a;
+            outline: none;
+            background: white;
+        }
+
+        .btn-main {
+            background: #1e3a8a;
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .btn-main:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .input-field {
+            border-color: #e2e8f0;
+        }
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- FRONT PAGE -->
+    <div id="front-page" class="w-full max-w-sm glass-card p-8 text-center">
+
+        <!-- 🔥 RESTORED (ETO YUNG NAWALA DATI) -->
+        <img src="assets/logo-5.png"
+             class="w-24 h-24 mx-auto mb-6"
+             onerror="this.src='https://ui-avatars.com/api/?name=LTO&background=1e3a8a&color=fff'">
+
+        <h1 class="text-2xl font-extrabold text-blue-900 mb-2">DVATS Enrollment</h1>
+
+        <p class="text-xs text-slate-500 mb-8 uppercase tracking-widest font-bold">
+            LTO Dasmariñas District Official Portal
+        </p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-900 p-4 mb-8 text-left text-xs text-blue-900">
+            <p class="font-bold mb-2">
+                <i class="fas fa-shield-alt mr-2"></i> DATA PRIVACY NOTICE:
+            </p>
+            <ul class="space-y-1 opacity-80">
+                <li>• Ensure stable internet connection.</li>
+                <li>• Use well-lit area for facial capture.</li>
+                <li>• All data is encrypted via AES-256.</li>
+            </ul>
+        </div>
+
+        <button onclick="document.getElementById('front-page').classList.add('hidden'); document.getElementById('reg-form-container').classList.remove('hidden')"
+                class="btn-main">
+            PROCEED TO REGISTRATION
+        </button>
+    </div>
+
+    <!-- FORM -->
+    <div id="reg-form-container" class="w-full max-w-sm glass-card p-6 hidden">
+
+        <a href="https://unadroitly-nonthinking-lora.ngrok-free.dev/dvats_api/driver-portal/index.html"
+           class="text-slate-400 text-xs font-bold uppercase mb-6 block hover:text-blue-900 transition">
+            <i class="fas fa-chevron-left mr-2"></i> Back to Login
+        </a>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="space-y-4">
+            <!-- Step Indicator -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em]">Registration</p>
+                    <h2 class="text-xl font-extrabold text-slate-800 tracking-tight">Personal Profile</h2>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Step 01/03</span>
+                    <div class="flex gap-1 mt-1">
+                        <div class="h-1.5 w-6 rounded-full bg-blue-600"></div>
+                        <div class="h-1.5 w-2 rounded-full bg-slate-200"></div>
+                        <div class="h-1.5 w-2 rounded-full bg-slate-200"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-6">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 text-center">Or scan your ID</p>
+                
+                <input type="file" id="mobile-ocr-input" class="hidden" accept="image/*" capture="environment" onchange="performOCR(this)">
+                
+                <button type="button" onclick="document.getElementById('mobile-ocr-input').click()" 
+                    class="w-full bg-blue-50 text-blue-600 py-3 rounded-2xl text-xs font-bold border-2 border-dashed border-blue-200 hover:bg-blue-100 transition-all">
+                    <i class="fas fa-camera mr-2"></i> SCAN DRIVER'S LICENSE
+                </button>
+                <p id="ocr-status" class="text-[9px] mt-2 text-slate-400 text-center"></p>
+            </div>
+
+            <!-- Full Name -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-user text-sm"></i>
+                </span>
+                <input type="text" id="fullname" 
+                    class="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="Full Name">
+            </div>
+
+            <!-- License Number -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-id-card text-sm"></i>
+                </span>
+                <input type="text" id="license_no" 
+                    class="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="License No. (e.g. N01-23-456789)">
+            </div>
+
+            <!-- Password -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-lock text-sm"></i>
+                </span>
+                <input type="password" id="password" 
+                    class="w-full pl-11 pr-12 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="Create Password">
+                <button type="button" onclick="togglePass()" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
+                    <i id="eyeIcon" class="fas fa-eye"></i>
+                </button>
+            </div>
+
+            <!-- Date Row -->
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Date of Birth -->
+                <div class="flex flex-col bg-white border border-slate-200 rounded-2xl px-4 pt-2.5 pb-2.5 focus-within:border-blue-500 transition-all">
+                    <label for="dob" class="text-[8px] font-black text-blue-600 uppercase tracking-widest mb-1">
+                        Date of Birth
+                    </label>
+                    <input 
+                        type="text"
+                        id="dob"
+                        placeholder="DD/MM/YYYY"
+                        onfocus="this.type='date'"
+                        onblur="if(!this.value) this.type='text'"
+                        onchange="this.type='text'; this.placeholder=this.value; this.type='date'"
+                        class="w-full bg-transparent outline-none text-xs font-bold text-slate-700 cursor-pointer"
+                        style="color-scheme: light; min-height: 24px;">
+                </div>
+
+                <!-- License Expiry -->
+                <div class="flex flex-col bg-white border border-slate-200 rounded-2xl px-4 pt-2.5 pb-2.5 focus-within:border-red-500 transition-all">
+                    <label for="license_expiry" class="text-[8px] font-black text-red-500 uppercase tracking-widest mb-1">
+                        License Expiry
+                    </label>
+                    <input 
+                        type="text"
+                        id="license_expiry"
+                        placeholder="DD/MM/YYYY"
+                        onfocus="this.type='date'"
+                        onblur="if(!this.value) this.type='text'"
+                        class="w-full bg-transparent outline-none text-xs font-bold text-slate-700 cursor-pointer"
+                        style="color-scheme: light; min-height: 24px;">
+                </div>
+            </div>
+
+            <!-- Age Field (Small) -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-birthday-cake text-sm"></i>
+                </span>
+                <input type="number" id="age" 
+                    class="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="Age">
+            </div>
+
+            <!-- Next Button -->
+            <button class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 mt-4 rounded-2xl font-bold text-sm tracking-widest transition-all active:scale-[0.98] shadow-xl shadow-slate-200 flex items-center justify-center gap-2" 
+                onclick="proceedToStep('step-1','step-2')">
+                PROCEED TO NEXT <i class="fas fa-arrow-right text-[10px]"></i>
+            </button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="step-hidden space-y-4">
+            <!-- Step Indicator -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em]">Registration</p>
+                    <h2 class="text-xl font-extrabold text-slate-800 tracking-tight">Contact Information</h2>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Step 02/03</span>
+                    <div class="flex gap-1 mt-1 justify-end">
+                        <div class="h-1.5 w-2 rounded-full bg-blue-200"></div>
+                        <div class="h-1.5 w-6 rounded-full bg-blue-600"></div>
+                        <div class="h-1.5 w-2 rounded-full bg-slate-200"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gender Selection -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-venus-mars text-sm"></i>
+                </span>
+                <select id="gender" 
+                    class="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all appearance-none cursor-pointer">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-300 pointer-events-none">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </span>
+            </div>
+
+            <!-- Email Address -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-envelope text-sm"></i>
+                </span>
+                <input type="email" id="email" 
+                    class="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="Email Address">
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="relative group">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-blue-500">
+                    <i class="fas fa-mobile-alt text-sm"></i>
+                </span>
+                <input type="tel" id="mobile" 
+                    class="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 outline-none text-sm font-semibold text-slate-700 transition-all placeholder:text-slate-400" 
+                    placeholder="Mobile Number (e.g. 09123456789)">
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="pt-4 space-y-3">
+                <button class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-bold text-sm tracking-widest transition-all active:scale-[0.98] shadow-xl shadow-slate-200 flex items-center justify-center gap-2" 
+                    onclick="proceedToStep('step-2','step-3')">
+                    CONTINUE <i class="fas fa-arrow-right text-[10px]"></i>
+                </button>
+                
+                <button class="w-full bg-transparent text-slate-400 py-2 rounded-2xl font-bold text-[10px] tracking-widest hover:text-slate-600 transition-all" 
+                    onclick="proceedToStep('step-2','step-1')">
+                    GO BACK
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step-3" class="step-hidden space-y-4">
+            <!-- Step Indicator -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em]">Registration</p>
+                    <h2 class="text-xl font-extrabold text-slate-800 tracking-tight">Identity Verification</h2>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Step 03/03</span>
+                    <div class="flex gap-1 mt-1 justify-end">
+                        <div class="h-1.5 w-2 rounded-full bg-blue-200"></div>
+                        <div class="h-1.5 w-2 rounded-full bg-blue-200"></div>
+                        <div class="h-1.5 w-6 rounded-full bg-blue-600"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 mb-4">
+                <p class="text-[10px] font-bold text-blue-700 uppercase tracking-wide mb-1 flex items-center gap-2">
+                    <i class="fas fa-info-circle"></i> Instructions
+                </p>
+                <p class="text-[11px] text-blue-600 leading-relaxed font-medium">
+                    Position your face within the circle and ensure you are in a well-lit area for better recognition.
+                </p>
+            </div>
+
+            <!-- Camera Preview Container -->
+            <div class="relative bg-slate-900 aspect-square max-h-64 mx-auto rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+                <video id="webcam" class="w-full h-full object-cover scale-x-[-1]" autoplay playsinline></video>
+
+                <!-- Face Guide Overlay -->
+                <div id="face-status" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-48 h-48 border-2 border-white/50 rounded-full relative">
+                        <!-- Scanner Line Animation -->
+                        <div class="absolute inset-x-0 h-0.5 bg-blue-400/50 shadow-[0_0_15px_rgba(96,165,250,0.5)] animate-[scan_3s_infinite] top-0"></div>
+                    </div>
+                </div>
+                
+                <!-- Camera Corner Accents -->
+                <div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/40"></div>
+                <div class="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/40"></div>
+                <div class="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/40"></div>
+                <div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/40"></div>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="pt-4 space-y-3">
+                <button class="w-full bg-white border border-slate-200 text-slate-800 py-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-3 transition-all active:scale-95 shadow-sm" 
+                    onclick="captureFace()">
+                    <i class="fas fa-camera text-blue-500"></i> CAPTURE PHOTO
+                </button>
+
+                <button id="retake-btn" class="w-full bg-red-50 text-red-600 py-3 rounded-2xl font-bold text-[10px] tracking-widest opacity-0 pointer-events-none transition-all flex items-center justify-center gap-2" 
+                    onclick="retakeFace()">
+                    <i class="fas fa-redo"></i> RETAKE PHOTO
+                </button>
+
+                <button id="btn-submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 mt-2 rounded-2xl font-bold text-sm tracking-widest transition-all active:scale-[0.98] shadow-xl shadow-slate-200 flex items-center justify-center gap-2" 
+                    onclick="submitRegistration()">
+                    FINISH REGISTRATION <i class="fas fa-check-circle text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src=""></script>
+    <script src="IosAlert.js"></script>
+    <script src="mobile_biometrics.js"></script>
+
+</body>
+</html>

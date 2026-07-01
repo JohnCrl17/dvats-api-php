@@ -1,0 +1,240 @@
+2026-05-11 05:00:42
+{"request_id":"1778475639,1900b777-1b5d-42a8-8cd6-7b5e04ea2a8e","time_used":1109,"confidence":83.569,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"fde4e625a893fb46646f0d5a6126f793","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"a751e2e01b6e20638719e8e67ac5075c","face_rectangle":{"top":1278,"left":951,"width":1166,"height":1166}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"Mcgs3uv7+d5A9aM0QwzdDg=="}
+
+
+2026-05-11 05:03:52
+{"request_id":"1778475830,cc8f3464-c874-463c-b3e4-d736ddf7e1e4","time_used":1189,"confidence":82.467,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"f4fbc3e8d4d46189f736621b0a743cf3","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"4f29ff82758702b3ed4fa4685ece593b","face_rectangle":{"top":1348,"left":989,"width":1126,"height":1126}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"Wf66nNcU3sJc/Sch/8cgUw=="}
+
+
+2026-05-11 05:05:28
+{"request_id":"1778475926,d8861bb0-b1c7-4d09-a0d3-6c3d3df7c270","time_used":1238,"confidence":82.053,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"be6e480b38bcae52666fab0a5ec45ecd","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"5ed0cd5cb2f92b6af4b2b2743b5403a1","face_rectangle":{"top":1477,"left":1045,"width":1047,"height":1047}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"GmowdIVJ+FhKBJB2eZUOpA=="}
+
+
+2026-05-11 05:10:40
+{"request_id":"1778476237,d89e30cc-2ecb-4e65-8450-6944b45404d2","time_used":1165,"confidence":81.711,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"2e4957458c333a0c27401fddf6f1ef25","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"c3342034f72a04777b2ab1f1c3b1c613","face_rectangle":{"top":1287,"left":994,"width":1198,"height":1198}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"HeWyG/cYCHjxnaTyAZ2GVw=="}
+
+
+2026-05-11 05:14:31
+{"request_id":"1778476468,462d6531-bccc-4141-b586-b43682839402","time_used":1198,"confidence":94.759,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"b58341239f2b771b303e4e5cbe2395b5","face_rectangle":{"top":1643,"left":1003,"width":1071,"height":1071}},{"face_token":"e356bb203ad4e219a2cca5c6e910999a","face_rectangle":{"top":2423,"left":-3,"width":283,"height":283}},{"face_token":"a36cf0dee01391b533b47ed96cc6123f","face_rectangle":{"top":1686,"left":856,"width":185,"height":185}}],"faces2":[{"face_token":"044c07e05ccd7b2f013c64184a08ac3b","face_rectangle":{"top":1356,"left":1004,"width":1131,"height":1131}}],"image_id1":"ocdBzvRU4Eb8cOl+R5+Jyg==","image_id2":"MIfnVyl40JX5iuJfI5Ztcw=="}
+
+
+2026-05-11 05:28:31
+{"request_id":"1778477308,862261f3-4ad2-4ad6-bc73-e1efb69e916d","time_used":1155,"confidence":82.324,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"d3a1c3f7146bebe009b99a0194cd7b9b","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"e3bf1d3961a500dce9ebff82cb37f967","face_rectangle":{"top":1265,"left":973,"width":1192,"height":1192}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"vCGp6bJu0liXgI8jr2ekbQ=="}
+
+
+2026-05-11 05:29:27
+{"request_id":"1778477365,d1e64a75-6a9d-44cf-98a9-f8a33872ce6f","time_used":1352,"confidence":93.911,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"5490eaf2cc5c915120e4cf95df3bd7ab","face_rectangle":{"top":1643,"left":1003,"width":1071,"height":1071}},{"face_token":"c3dd178ae9911ab14a7b9c2b69357d15","face_rectangle":{"top":2423,"left":-3,"width":283,"height":283}},{"face_token":"0213d52d54f8566288ca7d957b0b29ba","face_rectangle":{"top":1686,"left":856,"width":185,"height":185}}],"faces2":[{"face_token":"37dc5967fb82b42ad434a2fcd3f47e07","face_rectangle":{"top":1356,"left":984,"width":1146,"height":1146}}],"image_id1":"ocdBzvRU4Eb8cOl+R5+Jyg==","image_id2":"jxyz8CDmlf/o4ungTkmZlg=="}
+
+
+2026-05-11 05:30:10
+{"request_id":"1778477407,5ba557ed-c299-4f7b-9d6c-626decd94aa1","time_used":880,"faces1":[{"face_token":"9a7d235794b4710d112c35b8d894a1c3","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"Wmb91kgGXd7vEhzo2ZaLcA=="}
+
+
+2026-05-11 06:26:15
+{"request_id":"1778480772,cd0eb4cb-2389-4120-87bf-88a8baa867a3","time_used":1132,"confidence":71.211,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"4c6a744dbd3e2488f10c9647d66d7691","face_rectangle":{"top":1471,"left":942,"width":1182,"height":1182}},{"face_token":"1901ec3fa0843257d5b5be087b08264e","face_rectangle":{"top":2485,"left":726,"width":165,"height":165}}],"faces2":[{"face_token":"688f1e5364cbe658ae7490271db1a48b","face_rectangle":{"top":1275,"left":984,"width":1207,"height":1207}}],"image_id1":"xZQWHRsctE7sVUXGjOTY+A==","image_id2":"TAs0WYGx7CHoEzKOou2cdA=="}
+
+
+2026-05-11 06:26:48
+{"request_id":"1778480806,067cbc2a-b557-47c6-8009-bb9840470bc3","time_used":1080,"confidence":67.584,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"2e008ecc0059a4a423f70dc7e00f88b9","face_rectangle":{"top":1471,"left":942,"width":1182,"height":1182}},{"face_token":"5bb62c5f1f9535248d7e0d970f6964ff","face_rectangle":{"top":2485,"left":726,"width":165,"height":165}}],"faces2":[{"face_token":"f11d5c5f128ec10370e5de4c39b831b3","face_rectangle":{"top":1272,"left":1111,"width":1096,"height":1096}}],"image_id1":"xZQWHRsctE7sVUXGjOTY+A==","image_id2":"3zbVyKGc54aWyt+iE4kwgQ=="}
+
+
+2026-05-11 06:51:17
+{"request_id":"1778482274,3ee95d47-461f-4373-a2ea-21ba7643c0ab","time_used":1143,"confidence":84.394,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"67e056084025132a17eeaeff54ad346c","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"00395ef26abd68adefd0bfc7dba2e5df","face_rectangle":{"top":1348,"left":916,"width":1236,"height":1236}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"llcNUEGuPxrhi3p6qAu76w=="}
+
+
+2026-05-12 00:34:40
+{"request_id":"1778546079,d6514554-0620-47bd-a180-23b00f5a67f7","time_used":1125,"confidence":82.84,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"ab04da43245e52833c685e4e0fa93c6e","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"23e581ba8a2ff8dc24b2b4b59cc7a19d","face_rectangle":{"top":1305,"left":951,"width":1242,"height":1242}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"z+g8fw+Xbntr+ZebHCTgYA=="}
+
+
+2026-05-12 01:46:52
+{"request_id":"1778550411,abe7a8a6-aa6c-4490-af6d-93ff344a38a7","time_used":1070,"confidence":84.949,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"2095e9ba3963518c5cc520cac9d50bab","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"953b514047584312d2e2001056ba444f","face_rectangle":{"top":173,"left":123,"width":163,"height":163}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"8Fghk6ugEiJg1mMyQR5c0Q=="}
+
+
+2026-05-12 01:59:57
+{"request_id":"1778551196,f3ae44b9-1631-407d-ab33-c27223e800de","time_used":1024,"confidence":83.718,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"5ad0e0a9bcc355fd4c4294710fa4fc26","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"8400657bebf55fe18c4b047910b87029","face_rectangle":{"top":172,"left":138,"width":152,"height":152}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"usXgT3F/JgI4zrds9OIqoQ=="}
+
+
+2026-05-12 02:56:12
+{"request_id":"1778554568,e4b20227-e8dd-4ebf-b575-ba90e2b5a3d4","time_used":1047,"confidence":84.38,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"cdd0c41ca72c89f4583773087a39a6df","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"28d022723512228c3dae0b1dc977884b","face_rectangle":{"top":171,"left":133,"width":157,"height":157}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"+VtE7cBQ/RuVkjSqfr1p5A=="}
+
+
+2026-05-12 04:40:03
+{"request_id":"1778560802,18d3523a-0c24-445d-a393-93e29e40b884","time_used":1179,"confidence":86.638,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"4f6268b5f29d5fef29ca493011eca563","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"b1bc4e894e37f4c1166049eb9cc4a76b","face_rectangle":{"top":165,"left":144,"width":149,"height":149}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"JQYTRUtpFBqeo2pJXqB04Q=="}
+
+
+2026-05-12 09:58:32
+{"request_id":"1778579912,bf86158e-ec8d-4019-9d9d-d659a94a8f01","time_used":1078,"confidence":46.359,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"0afa80561250eb66c1f87a304e8e3a21","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"1fcd43875dbc0a47953fe83e9983c126","face_rectangle":{"top":159,"left":133,"width":150,"height":150}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"WH6Vl444DZVkzOD+lREbow=="}
+
+
+2026-05-13 23:06:10
+{"request_id":"1778713570,e705d553-df0d-4037-adeb-dbafe7ef3040","time_used":1019,"confidence":86.629,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"27a0d1714090e536ae440dde6a39d3ed","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"26963cd380cba480754c5ef5c441649a","face_rectangle":{"top":172,"left":131,"width":159,"height":159}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"Ssk1XG9S1WCASNXniCseDg=="}
+
+
+2026-05-16 05:47:11
+{"request_id":"1778910430,8fb2d130-b94b-4310-afb2-e53319076941","time_used":1020,"confidence":84.62,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"232e7b54002ca053a4fd2d8e6f8e619c","face_rectangle":{"top":1411,"left":-477,"width":2511,"height":2511}}],"faces2":[{"face_token":"b0b9e9e23a8d63f72513a31a8eeb0b3b","face_rectangle":{"top":171,"left":120,"width":165,"height":165}}],"image_id1":"Wj2cR8vAm4A1fid50YVXMg==","image_id2":"kEKacj0SNqMxcAwor7lI4g=="}
+
+
+2026-05-18 01:54:55
+{"request_id":"1779069295,fe69732a-9eaf-4211-bdd3-fed8f0c17dc6","time_used":381,"confidence":90.868,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"34acbcfdfbe132efa5953431a42fdd6a","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"eb8a601f5cf4e1d6160ea343c219782c","face_rectangle":{"top":166,"left":127,"width":152,"height":152}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"Jw/f1SlI3knV+dHK6HpLMw=="}
+
+
+2026-05-24 05:19:19
+{"request_id":"1779599959,dafe9a88-ec88-4210-8e55-aad69a1545c3","time_used":276,"confidence":90.979,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"4a97f2bed6c2c250c30b41d9f36d9b6a","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"4f673cd6311d09db1e381361da088f14","face_rectangle":{"top":175,"left":156,"width":136,"height":136}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"kHOk09gMGY3xC01gZg/QRg=="}
+
+
+2026-05-24 06:31:49
+{"request_id":"1779604308,fcf271e9-0fef-4d5a-96f6-bfebb25346a4","time_used":233,"confidence":90.514,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"d15848c7f64cd8bb6c05b38df2492a65","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"dc295ef5697352b9c0229bf15658f729","face_rectangle":{"top":179,"left":134,"width":154,"height":154}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"8q3ffhuF2zSM5w/fMlLexQ=="}
+
+
+2026-05-25 02:08:09
+{"request_id":"1779674888,7e3c6a0c-1483-4f39-9be3-0a5907299411","time_used":248,"confidence":90.818,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"052db85bd730586223f5877b6d1a303a","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"ab67a126f76ef48c4e2c5ef0c7a57c9a","face_rectangle":{"top":223,"left":119,"width":172,"height":172}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"ZAQe5hA/ob+k4KYD2b6DKQ=="}
+
+
+2026-05-25 03:50:11
+{"request_id":"1779681010,31a8694d-9294-4b6e-8ba9-e3f139557f33","time_used":264,"confidence":90.23,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"860364b25c9c63c080ac699c43920ef7","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"b565821f83d324fabc8225d96c1936ff","face_rectangle":{"top":217,"left":123,"width":166,"height":166}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"T5b+BZDbI2DTHf1xWu8CnA=="}
+
+
+2026-05-25 03:57:33
+{"request_id":"1779681452,57b424cf-b365-4eae-85e9-97aaaace89a7","time_used":237,"confidence":91.354,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"13aeff7eb6d45a7a7d88cb2e7cfdf53d","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"2f65e55d19d78a636a52a55d502fcf49","face_rectangle":{"top":221,"left":127,"width":158,"height":158}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"c4Jr8VTdZxQCzF9kYJsiQg=="}
+
+
+2026-05-25 04:03:52
+{"request_id":"1779681832,2396cf37-59c0-4ad1-9700-2cd40315f4d1","time_used":245,"confidence":89.787,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"02d80143217361694f25570bef8c06b9","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"4565f7c42233be4050ef200c2e044a9a","face_rectangle":{"top":216,"left":118,"width":175,"height":175}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"6ZeeBrJxpeD1GWPUgPNaTQ=="}
+
+
+2026-05-25 04:15:53
+{"request_id":"1779682552,75354510-fd10-4025-bdc2-73a0d2022378","time_used":236,"confidence":90.233,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"f16224aa8a48b2ebf78df24e39005178","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"9023030ba5c0d61a404772894008e338","face_rectangle":{"top":217,"left":118,"width":172,"height":172}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"aX3VaFJZa4RN/ZJCtRjHEw=="}
+
+
+2026-05-25 04:25:32
+{"request_id":"1779683131,0f013f35-f079-454c-9468-e4e69a5ddf42","time_used":243,"confidence":89.895,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"63ed7837825f26439c6fa6f86d94e044","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"50894c5cb14919d232a9f2a7f897642e","face_rectangle":{"top":221,"left":115,"width":160,"height":160}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"NPxZIHtjcfoqcbIIwAXtjw=="}
+
+
+2026-05-25 05:21:30
+{"request_id":"1779686489,ecacc91a-dcb3-4eef-8d35-84e9f85fb979","time_used":265,"confidence":89.638,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"9b746ff7131bdda7e06a6095240c29f8","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"7ec68f2f3aa2b8789dbe350c1fde22f7","face_rectangle":{"top":227,"left":127,"width":160,"height":160}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"gphnEX/EmBkQrlZroPLhiA=="}
+
+
+2026-05-25 05:54:32
+{"request_id":"1779688471,a4032267-20d3-4fbb-a174-e22aeb8ff929","time_used":261,"confidence":90.381,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"8c0951febfe73455a6e035e0ff1ccba3","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"3e7c25e5c6633cc4328fd41e3df9a802","face_rectangle":{"top":211,"left":133,"width":164,"height":164}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"AR00Q3gl1LueT9FGMPe9zA=="}
+
+
+2026-05-25 08:08:03
+{"request_id":"1779696482,b99002d5-0af3-4b84-9a8e-c2b6a42fb774","time_used":277,"confidence":91.059,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"cea1b8feaf2cd86e4aa22a71b01876bb","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"782f4a2e754d2d77072dc9c6f57789f3","face_rectangle":{"top":215,"left":139,"width":151,"height":151}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"0CZizDTkdAzhWIpFi2ESDg=="}
+
+
+2026-05-25 08:09:12
+{"request_id":"1779696551,f2c79bba-eab2-46c5-9fe7-afa37efd0cc5","time_used":224,"confidence":67.79,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"6549f521b8880f81161e3f5e934a3a00","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"9901a49b783ffdcbb66d641afec1fffb","face_rectangle":{"top":263,"left":-90,"width":162,"height":162}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"/ip/On9tHXKWo3urSvK1nQ=="}
+
+
+2026-05-25 08:11:51
+{"request_id":"1779696711,15308eb5-4bfe-45aa-b5ae-d076fb370f08","time_used":227,"confidence":91.199,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"5408bfd050c06997c8337437f2d822e4","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"62e0f16b94024fb63b52c074ec505bfb","face_rectangle":{"top":227,"left":142,"width":142,"height":142}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"HuwcCArKhjhKCA8FWK1elw=="}
+
+
+2026-05-26 00:47:39
+{"request_id":"1779756458,380eb7b7-d713-411d-83e2-61f32524e5e6","time_used":259,"confidence":90.992,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"92a8fc993767bd4a0708d0086e13f507","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"4e2e0226c382cce7f490e66c2a9c1b9a","face_rectangle":{"top":199,"left":147,"width":153,"height":153}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"WWGHl5U1BAezyY0nHOgpqQ=="}
+
+
+2026-05-26 00:48:52
+{"request_id":"1779756531,726b9a46-b508-44ef-88b2-7c3f263c4a7f","time_used":253,"confidence":91.023,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"889da318f78af7d1aef4580e9b9cb630","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"d9e5b9ca8ff5c2cf281410065245c3e2","face_rectangle":{"top":226,"left":130,"width":161,"height":161}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"/gy2oMiJARW4g+sB5e6fjg=="}
+
+
+2026-05-26 00:49:34
+{"request_id":"1779756573,abd564dd-9da5-4c4e-a5a3-020701336972","time_used":197,"confidence":89.945,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"85e224ce19d028cd3f6660922b88aed2","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"c4623ef56d5275c3c3387a216213469a","face_rectangle":{"top":235,"left":124,"width":167,"height":167}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"hrrIFMGtPZ8y/MbKjT7OsA=="}
+
+
+2026-05-26 03:50:54
+{"request_id":"1779767453,e6393de8-b206-4cd6-bfa1-6f16e570898e","time_used":231,"confidence":90.914,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"9c2f2a95b760eb61a7583d11b21e2d42","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"a3ff00dd411c647502b84cb9b989b136","face_rectangle":{"top":210,"left":132,"width":152,"height":152}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"FkhIHDOULtVVJAutNPW3vg=="}
+
+
+2026-05-26 07:43:46
+{"request_id":"1779781426,54c0ebdc-0abc-411d-a6c4-c4c3daf588c4","time_used":260,"confidence":88.325,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"1016f0318318b51c038a8ac43f098439","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"edb285b98874562db9c0688fe6db67ee","face_rectangle":{"top":217,"left":126,"width":169,"height":169}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"jd5s+PX0krBJA08mS7lG5Q=="}
+
+
+2026-05-27 02:04:58
+{"request_id":"1779847497,0468957a-5ee8-4498-b59a-c44912a5a3f4","time_used":244,"confidence":90.914,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"a01644adaa2a6cd8470ca6182a9e7856","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"15046e97ac4f4a7bfa364cc0b187fc4f","face_rectangle":{"top":210,"left":133,"width":160,"height":160}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"NEZy4+UfB6eEB1LRr2aqMQ=="}
+
+
+2026-05-27 02:05:30
+{"request_id":"1779847529,46fc6035-1714-4dff-98b7-dace5118dc71","time_used":200,"confidence":89.457,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"1249d4cd9561c4c57a0802cab599fe48","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"13c9c12a8d65931b5e40dd044cb6e0bf","face_rectangle":{"top":230,"left":127,"width":157,"height":157}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"ZGJBvBUwTug7cLlFxVOxLw=="}
+
+
+2026-05-27 02:16:33
+{"request_id":"1779848192,eec943e2-b89d-474a-a710-f1bffabc1b20","time_used":260,"confidence":90.503,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"43a00ae00ba4e9d8073a9b8f650a8e14","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"52212a57a15cc3c7aef575364e495a8b","face_rectangle":{"top":211,"left":129,"width":148,"height":148}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"jnSPgwrLJwogTkR7/zRsVQ=="}
+
+
+2026-05-27 02:16:57
+{"request_id":"1779848216,83dbcab9-fb5c-41ab-a975-e137f20ad53d","time_used":197,"confidence":89.091,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"f48bbd85b10c3e39f6010f62bb918ecc","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"6afcff25b10dbd74f873c27ce152d169","face_rectangle":{"top":240,"left":130,"width":156,"height":156}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"UqXzS/ZWr2qNn/mbB6H4SQ=="}
+
+
+2026-05-27 02:23:31
+{"request_id":"1779848610,2c47eaac-fba9-47ea-a235-64ec336d7e44","time_used":249,"confidence":87.851,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"90fac945f6ffb8f3f90db52ac03c244f","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"1c4ed6010d3ad5d5ae82cc432bfe3ee0","face_rectangle":{"top":200,"left":128,"width":161,"height":161}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"d50s0RAnqvVK9CWvBpggIQ=="}
+
+
+2026-05-27 02:56:17
+{"request_id":"1779850576,2d82abc6-3e45-4619-b3a6-167f7529a73d","time_used":272,"confidence":88.018,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"786a48dbf18b2700c3b4362b8bedb024","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"4c00ca4af6d46c163c4de74cf976550b","face_rectangle":{"top":248,"left":114,"width":153,"height":153}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"0l5ai/LxMvNfrC5hF4Rr9A=="}
+
+
+2026-05-27 04:39:17
+{"request_id":"1779856756,113a7ed3-216c-47ff-96ce-c525b8d66d73","time_used":231,"confidence":88.841,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"88daf8e41b10ca3830e6239a937f9f7c","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"c1559c20a8f1abdedb19fd84031d4beb","face_rectangle":{"top":199,"left":126,"width":154,"height":154}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"PJZa4ScR1NoSBCguqBBoBQ=="}
+
+
+2026-05-27 04:40:03
+{"request_id":"1779856802,d447ca44-4138-4069-bb36-a761f1c8d65c","time_used":205,"confidence":90.382,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"8ad074cdc8d5461b6d8836929029e410","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"d0b0683738a9d74efc69ebae8aab2093","face_rectangle":{"top":222,"left":130,"width":162,"height":162}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"IbCM6JjEgA10vRbgG3uuCg=="}
+
+
+2026-05-27 04:48:54
+{"request_id":"1779857333,079deafb-67bf-4ee1-9d25-16fb91e90c7d","time_used":256,"confidence":90.856,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"b036f06ce70264ebfaa7fc962aded995","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"8019f6e1647ed1db73e81a5e583e49b3","face_rectangle":{"top":230,"left":148,"width":156,"height":156}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"Qz14DF+/QDvpTa9pMGbtuQ=="}
+
+
+2026-05-27 05:03:04
+{"request_id":"1779858183,3d5248f3-7f09-4158-acad-2b41ac9e8b50","time_used":290,"confidence":90.025,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"3b1bf1ffdee99c332375766f52241eb7","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"3b89ba2b7fa4dd2c48cf984a5e1e6529","face_rectangle":{"top":215,"left":127,"width":149,"height":149}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"qxBPKPonq2/pAsMd6runaA=="}
+
+
+2026-05-27 05:11:25
+{"request_id":"1779858685,864201f9-5f4b-4d92-85a0-8f95b6d8a7d3","time_used":249,"confidence":91.115,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"0b4854f853c07269399ee4de0faebb32","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"7e062c37eb02c4e393b4c36442c9cac5","face_rectangle":{"top":199,"left":127,"width":162,"height":162}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"Ky0BBKcmSGWlYQ8RrKQq7g=="}
+
+
+2026-05-27 05:12:02
+{"request_id":"1779858721,650a2d74-02a5-4234-96e9-79cdff910ef4","time_used":201,"confidence":90.912,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"4be6925d3b4e7e9b326e8d64d2976b61","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"5fc3748c4723010589cbbfa16ba5ff44","face_rectangle":{"top":215,"left":138,"width":151,"height":151}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"nj+ByWkCX7v0WmV9/9V/OA=="}
+
+
+2026-05-27 05:13:26
+{"request_id":"1779858805,5d75416f-a0cc-4af9-8427-f28696ad2e7b","time_used":233,"confidence":90.065,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"b8b853f0c85297101996ede34d4ed30e","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"b123003f896fbc22a4ebcebbd7d89f5d","face_rectangle":{"top":215,"left":117,"width":182,"height":182}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"1O8svDGE5bQqFB6GP5ZKoA=="}
+
+
+2026-05-27 05:25:58
+{"request_id":"1779859557,6f3728fa-ac9f-4734-b4c5-4e388d287726","time_used":262,"confidence":88.554,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"a8f17c81b30fb047f2b5aa2e26be5cbc","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"8ca7c1dcf6fa3262b5ec6dd167c0662c","face_rectangle":{"top":214,"left":140,"width":160,"height":160}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"yVcWrlHyIT+pGtffsW3OLA=="}
+
+
+2026-05-27 06:43:14
+{"request_id":"1779864194,cdb6bee3-e6ba-40a4-aeee-d00d4058c1d6","time_used":235,"confidence":88.402,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"41a2b255e11672e45882ac26285635fa","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"a63827a0e88ed630b31d24bee5955007","face_rectangle":{"top":228,"left":151,"width":116,"height":116}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"VTOaErIfOqK8S3tyZx7IfA=="}
+
+
+2026-05-27 06:43:53
+{"request_id":"1779864232,fa4d93eb-4692-45aa-8b8c-ef467e21720c","time_used":195,"confidence":87.224,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"359d907ef824d98feb8d5ec150b2d5da","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"1eb880a0ff560df81aadb43cd665f947","face_rectangle":{"top":226,"left":126,"width":148,"height":148}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"j4ef1dkJfzmXsKPQLWH/AA=="}
+
+
+2026-05-27 06:59:03
+{"request_id":"1779865142,63d04d6b-c979-407d-8b8f-539399fef40e","time_used":292,"confidence":87.991,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"3b8d1714f5880918d0c778fd7f82a75e","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"5f5d6af9de0dd7b0ee1828e73fecff82","face_rectangle":{"top":230,"left":152,"width":138,"height":138}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"q9qII5WyuDKgAYjpAqbPSg=="}
+
+
+2026-05-27 07:34:09
+{"request_id":"1779867248,d51c0631-963b-4e45-bb84-91a8938b1298","time_used":240,"confidence":86.43,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"737db489d7dfc9e46ac2ca55693d292f","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"bc7a7ea18c081a528ed4e58bea5be6cd","face_rectangle":{"top":222,"left":141,"width":140,"height":140}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"4nPf4rQf86LfyD/l9ERxzw=="}
+
+
+2026-05-28 01:08:16
+{"request_id":"1779930495,f2da413b-d0c1-4175-81cf-241b137c6451","time_used":244,"confidence":88.874,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"d0370dd3b6be349e492700b82f9f8ad7","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"9c5ab9a53450893332ddac2a5a766f97","face_rectangle":{"top":231,"left":156,"width":111,"height":111}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"oBsgK/yQm/h9wRftpuSY0A=="}
+
+
+2026-06-09 08:39:59
+{"request_id":"1780994398,187107ea-88d4-4ab9-abaf-44da0001c2f8","time_used":384,"confidence":88.105,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"663f872cfcde38e0095e7d32a4490a8f","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"4561071225ff575fea8e2f2cf061b900","face_rectangle":{"top":231,"left":134,"width":134,"height":134}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"lcoH9rykqfEM0YmugTDA0A=="}
+
+
+2026-06-27 14:25:40
+{"request_id":"1782570339,d65aa29c-7c0e-4652-8f0f-73a8e047a6fe","time_used":279,"confidence":77.483,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"39ffacc2d16a818d430031da48624f1f","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"cf58ad4485160630f2af2c3758f326c8","face_rectangle":{"top":219,"left":137,"width":145,"height":145}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"kdcqd6K969g7itureI7vZw=="}
+
+
+2026-06-28 07:15:30
+{"request_id":"1782630928,c095f49c-b467-46d9-9682-e469c8a52384","time_used":260,"confidence":85.446,"thresholds":{"1e-3":62.327,"1e-4":69.101,"1e-5":73.975},"faces1":[{"face_token":"79bfaf178aabc9618b516c1eb40d4b29","face_rectangle":{"top":130,"left":110,"width":146,"height":146}}],"faces2":[{"face_token":"a6567947f0b072ca89a552169335af3d","face_rectangle":{"top":215,"left":117,"width":163,"height":163}}],"image_id1":"RJXNXdYA2LBgoqPfAaNDKA==","image_id2":"JeLkrEbbS9qFTClBh+ehhQ=="}
+
+
