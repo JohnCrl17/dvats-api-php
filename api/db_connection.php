@@ -1,12 +1,15 @@
 <?php
-$host = "localhost";
+// Railway Credentials
+$host = "thomas.proxy.rlwy.net";
 $user = "root";
-$pass = "";
-$dbname = "lto_system";
+$pass = "YUNG_PASSWORD_MO_DITO"; 
+$dbname = "railway"; // Ito ang pangalan ng database sa Railway
+$port = 59970; // Ito ang port na binigay sa dashboard mo
 
-mysqli_report(MYSQLI_REPORT_OFF); // IMPORTANT: disable strict crash
+mysqli_report(MYSQLI_REPORT_OFF);
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+// Connection gamit ang Port
+$conn = new mysqli($host, $user, $pass, $dbname, $port);
 
 if ($conn->connect_error) {
     header('Content-Type: application/json');
@@ -17,7 +20,7 @@ if ($conn->connect_error) {
         "message" => "Database Connection Failed",
         "debug" => $conn->connect_error
     ]);
-    exit; // 🔥 CRITICAL
+    exit;
 }
 
 $conn->set_charset("utf8mb4");
