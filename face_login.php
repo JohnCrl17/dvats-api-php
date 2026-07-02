@@ -2,6 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, ngrok-skip-browser-warning");
+
+// ✅ FIX: Use db_connection.php instead of hardcoded localhost
 include 'db_connection.php';
 
 // =========================
@@ -11,15 +13,17 @@ $api_key    = "o6oCmbGE5aJ-BoX_JUQzXyExcUTaUgKg";
 $api_secret = "-OqrrEAXqdXHZeuQIfi6j0XO8isTvNx2";
 
 // =========================
-// DB CONNECTION
+// ❌ TANGGAL: Hardcoded localhost connection
 // =========================
-$host = "localhost";
-$db   = "dvats_db";
-$user = "root";
-$pass = "";
+// $host = "localhost";
+// $db   = "dvats_db";
+// $user = "root";
+// $pass = "";
+// $conn = new mysqli($host, $user, $pass, $db);
+// if ($conn->connect_error) { ... }
 
-$conn = new mysqli($host, $user, $pass, $db);
-
+// ✅ Instead, use $conn from db_connection.php
+// Check if connection exists
 if ($conn->connect_error) {
     echo json_encode([
         "status" => "error",
@@ -92,8 +96,8 @@ $face_api_url = "https://api-us.faceplusplus.com/facepp/v3/compare";
 $post_data = [
     'api_key'        => $api_key,
     'api_secret'     => $api_secret,
-    'image_base64_1' => $stored_face, // Stored face_token from registration
-    'image_base64_2' => $selfie_b64,  // Current selfie scan
+    'image_base64_1' => $stored_face,
+    'image_base64_2' => $selfie_b64,
 ];
 
 $ch = curl_init();
@@ -143,7 +147,7 @@ if ($confidence >= $threshold) {
             "badge_number" => $user['badge_number'],
             "unit"         => $user['unit'],
             "email"        => $user['email'],
-            "face_token"   => $user['face_token'] // Return the face_token instead of profile_pic
+            "face_token"   => $user['face_token']
         ]
     ]);
 } else {
