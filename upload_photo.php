@@ -16,22 +16,42 @@ if (empty($base64)) {
 $base64 = preg_replace('#^data:image/\w+;base64,#i', '', $base64);
 $binary = base64_decode($base64);
 
-// Folder
-$folder = "uploads/{$type}/";
-if (!is_dir($folder)) mkdir($folder, 0755, true);
+if (!$binary) {
+    echo json_encode(["status" => "error", "message" => "Invalid base64 data"]);
+    exit;
+}
+
+// ✅ Folder - use absolute path for Render
+$folder = __DIR__ . "/uploads/{$type}/";
+if (!is_dir($folder)) {
+    if (!mkdir($folder, 0755, true)) {
+        echo json_encode(["status" => "error", "message" => "Failed to create upload directory"]);
+        exit;
+    }
+}
+
+// ✅ Check if writable
+if (!is_writable($folder)) {
+    echo json_encode(["status" => "error", "message" => "Upload directory not writable"]);
+    exit;
+}
 
 // Filename
 $filename = $type . '_' . $ticket_no . '_' . time() . '.jpg';
 $filepath = $folder . $filename;
 
 // I-save
-file_put_contents($filepath, $binary);
+if (file_put_contents($filepath, $binary) === false) {
+    echo json_encode(["status" => "error", "message" => "Failed to save image"]);
+    exit;
+}
 
-// I-return ang URL
-$url = "https://unadroitly-nonthinking-lora.ngrok-free.dev/dvats_api/" . $filepath;
+// ✅ FIXED: Use Render URL instead of Ngrok
+$url = "https://dvats-api-php.onrender.com/" . "uploads/{$type}/" . $filename;
 
 echo json_encode([
     "status" => "success",
-    "url"    => $url
+    "url"    => $url,
+    "type"   => $type
 ]);
 ?>
