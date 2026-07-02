@@ -10,21 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header("Content-Type: application/json; charset=UTF-8");
 
-// DB CONFIG
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "lto_system";
-
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    echo json_encode([
-        "success" => false,
-        "message" => "Database connection failed"
-    ]);
-    exit();
-}
+// DITO NA TAYO KUKUHA NG CONNECTION MULA SA db_connection.php
+require_once 'db_connection.php'; 
 
 // INPUT
 $license  = isset($_POST['license_no']) ? trim($_POST['license_no']) : '';
@@ -38,7 +25,7 @@ if (empty($license) || empty($password)) {
     exit();
 }
 
-// GET USER
+// GET USER (Gamit na natin ang $conn variable galing sa db_connection.php)
 $stmt = $conn->prepare("SELECT client_id, fullname, license_no, password, profile_path, qr_image, license_expiry, date_of_birth FROM clients WHERE license_no = ? LIMIT 1");
 
 if (!$stmt) {
@@ -67,19 +54,12 @@ $driver = $result->fetch_assoc();
 $storedPassword = trim($driver['password']);
 $loginSuccess = false;
 
-// DEBUG (optional)
-// error_log("INPUT: " . $password);
-// error_log("HASH: " . $storedPassword);
-
 if (!empty($storedPassword) && password_verify($password, $storedPassword)) {
     $loginSuccess = true;
 }
 elseif ($password === $storedPassword) {
     $loginSuccess = true;
-
-    // upgrade to hash
     $newHash = password_hash($password, PASSWORD_DEFAULT);
-
     $update = $conn->prepare("UPDATE clients SET password=? WHERE client_id=?");
     if ($update) {
         $update->bind_param("si", $newHash, $driver['client_id']);
