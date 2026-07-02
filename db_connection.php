@@ -1,5 +1,5 @@
 <?php
-// Kunin ang credentials mula sa Render Environment Variables (na-save na natin kanina)
+// Kunin ang credentials mula sa Render Environment Variables
 $host = getenv('DB_HOST');
 $user = getenv('DB_USER');
 $pass = getenv('DB_PASS');
@@ -8,7 +8,8 @@ $port = getenv('DB_PORT');
 
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$conn = new mysqli($host, $user, $pass, $dbname, (int)$port);
+// ✅ DAGDAG: 'p:' for persistent connection
+$conn = new mysqli('p:' . $host, $user, $pass, $dbname, (int)$port);
 
 if ($conn->connect_error) {
     header('Content-Type: application/json');
