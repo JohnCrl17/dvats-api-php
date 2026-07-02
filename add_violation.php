@@ -46,7 +46,7 @@ if ($check && $check->num_rows > 0) {
 
 $ticket_no = "DVATS-" . strtoupper(substr(md5(uniqid()), 0, 6));
 
-/* 3. INSERT TO APPREHENSIONS (walang driver_email/driver_phone) */
+/* 3. INSERT TO APPREHENSIONS (dvats_db) */
 $apprehensionQuery = "
 INSERT INTO dvats_db.apprehensions
 (ticket_no, license_no, badge_number, driver_name, violation_name, fine_amount, penalty_amount, status, is_registered, client_id, violation_photo, enforcer_proof, proof_type)
@@ -63,10 +63,9 @@ if (!$conn->query($apprehensionQuery)) {
     exit();
 }
 
-/* 4. SYNC TO VIOLATIONS TABLE */
-$conn2 = new mysqli("localhost", "root", "", "lto_system");
-$conn2->query("
-INSERT INTO violations
+/* 4. ✅ SYNC TO VIOLATIONS TABLE (lto_system) - gamit si $conn lang! */
+$conn->query("
+INSERT INTO lto_system.violations
 (ticket_no, license_no, badge_number, driver_name, violation_name, penalty_amount, fine_amount, status, is_registered, client_id, violation_photo, enforcer_proof, proof_type)
 VALUES
 ('$ticket_no','$license_no','$badge','$driver_name','$violation','$amount','$amount','PENDING',$is_registered, $client_id, $violation_photo, $enforcer_proof, $proof_type)
