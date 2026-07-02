@@ -2,8 +2,8 @@
 // Railway Credentials
 $host = "thomas.proxy.rlwy.net";
 $user = "root";
-$pass = "YUNG_PASSWORD_MO_DITO"; 
-$dbname = "lto_system"; // Ito ang pangalan ng database sa Railway
+$pass = "ILGYnNyjWRamzJVQyIKAFERnAyEAdueb"; 
+$dbname = "railway"; // Ito ang pangalan ng database sa Railway
 $port = 59970; // Ito ang port na binigay sa dashboard mo
 
 mysqli_report(MYSQLI_REPORT_OFF);
