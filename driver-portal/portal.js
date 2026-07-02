@@ -42,7 +42,7 @@ function checkExpiration(expiryDate) {
     }
 }
 
-const API_BASE = "https://dvats-api-php.onrender.com/dvats_api";
+const API_BASE = "https://dvats-api-php.onrender.com";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DVATS: System Initializing...");

@@ -621,7 +621,7 @@ async function submitRegistration() {
 
         // Submit
         const res = await fetch(
-            "https://dvats-api-php.onrender.com/dvats_api/insert_client.php",
+            "https://dvats-api-php.onrender.com/insert_client.php",
             {
                 method:  'POST',
                 body:    formData,
