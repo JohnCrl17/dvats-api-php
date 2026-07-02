@@ -634,7 +634,7 @@ async function submitRegistration() {
         if (result.status === "success") {
             IosAlert.alert("Registration Successful!");
             window.location.href =
-                "https://unadroitly-nonthinking-lora.ngrok-free.dev/dvats_api/driver-portal/index.html";
+                "/driver-portal/index.html";
         } else {
             throw new Error(result.message || "Registration failed");
         }

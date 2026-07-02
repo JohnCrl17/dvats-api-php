@@ -229,7 +229,6 @@ async function fetchAllData(driver) {
     try {
         const response = await fetch(
             `${API_BASE}/mobile_dashboard.php?client_id=${clientId}`,
-            { headers: { 'ngrok-skip-browser-warning': 'true' } }
         );
         const data = await response.json();
         console.log("API Response:", data);
