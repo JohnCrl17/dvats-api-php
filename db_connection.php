@@ -1,20 +1,18 @@
 <?php
-// Railway Credentials
-$host = "thomas.proxy.rlwy.net";
-$user = "root";
-$pass = "ILGYnNyjWRamzJVQyIKAFERnAyEAdueb"; 
-$dbname = "railway"; // Ito ang pangalan ng database sa Railway
-$port = 59970; // Ito ang port na binigay sa dashboard mo
+// Kunin ang credentials mula sa Render Environment Variables (na-save na natin kanina)
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$dbname = getenv('DB_NAME');
+$port = getenv('DB_PORT');
 
 mysqli_report(MYSQLI_REPORT_OFF);
 
-// Connection gamit ang Port
-$conn = new mysqli($host, $user, $pass, $dbname, $port);
+$conn = new mysqli($host, $user, $pass, $dbname, (int)$port);
 
 if ($conn->connect_error) {
     header('Content-Type: application/json');
     http_response_code(500);
-
     echo json_encode([
         "status" => "error",
         "message" => "Database Connection Failed",
