@@ -9,33 +9,40 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 include 'db_connection.php';
 
-// ✅ Use lto_system database (where enforcers table is)
-$conn->select_db('lto_system');
-
+// ✅ DEBUG: Check if data received
 $rawData = file_get_contents("php://input");
 
-if (!$rawData) {
-    echo json_encode(["status" => "error", "message" => "No input received"]);
+if (!$rawData || empty($rawData)) {
+    echo json_encode([
+        "status"  => "error",
+        "message" => "No input received",
+        "debug"   => "Raw data is empty"
+    ]);
     exit;
 }
 
 $data = json_decode($rawData, true);
 
 if (!$data) {
-    echo json_encode(["status" => "error", "message" => "Invalid JSON"]);
+    echo json_encode([
+        "status"  => "error",
+        "message" => "Invalid JSON",
+        "debug"   => "JSON decode failed",
+        "raw"     => substr($rawData, 0, 100)
+    ]);
     exit;
 }
 
 $badge = $data['badge_number'] ?? '';
-// ✅ Accept both profile_pic and face_token from mobile app
-$face  = $data['profile_pic'] ?? $data['face_token'] ?? '';
+$face  = $data['face_token'] ?? $data['profile_pic'] ?? '';
 
 if (empty($badge) || empty($face)) {
     echo json_encode([
         "status"      => "error",
-        "message"     => "Missing data: badge_number and profile_pic/face_token are required",
+        "message"     => "Missing data: badge_number and face_token are required",
         "badge"       => $badge,
-        "face_length" => strlen($face)
+        "face_length" => strlen($face),
+        "keys"        => array_keys($data)
     ]);
     exit;
 }
@@ -44,14 +51,12 @@ if (empty($badge) || empty($face)) {
 $face = preg_replace('#^data:image/\w+;base64,#i', '', $face);
 $face = trim($face);
 
-// ✅ Update face_token in lto_system.enforcers (this is the correct table!)
+// Update face_token in enforcers table
+$conn->select_db('lto_system');
 $stmt = $conn->prepare("UPDATE enforcers SET face_token = ? WHERE badge_number = ?");
 
 if (!$stmt) {
-    echo json_encode([
-        "status"  => "error",
-        "message" => "Prepare failed: " . $conn->error
-    ]);
+    echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);
     exit;
 }
 
@@ -60,14 +65,11 @@ $stmt->bind_param("ss", $face, $badge);
 if ($stmt->execute()) {
     echo json_encode([
         "status"       => "success",
-        "message"      => "Profile photo and face token updated successfully!",
+        "message"      => "Profile photo updated!",
         "badge_number" => $badge
     ]);
 } else {
-    echo json_encode([
-        "status"  => "error",
-        "message" => "DB update failed: " . $stmt->error
-    ]);
+    echo json_encode(["status" => "error", "message" => "DB update failed: " . $stmt->error]);
 }
 
 $stmt->close();
