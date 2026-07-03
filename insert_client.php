@@ -11,21 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 try {
-    // DB Connection
-    $host = "localhost";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "dvats_db"; // Main connection sa dvats_db
-
-    $conn = new PDO("mysql:host=$host;dbname=$db_name", $db_user, $db_pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // ✅ FIX: Use db_connection.php instead of hardcoded localhost
+    include 'db_connection.php';
+    
+    // Convert MySQLi to PDO for this script
+    $pdo = new PDO(
+        "mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME') . ";port=" . getenv('DB_PORT'),
+        getenv('DB_USER'),
+        getenv('DB_PASS')
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Kunin ang data mula sa POST request
     $fullname       = $_POST['fullname'] ?? null;
     $license_no     = trim($_POST['license_no'] ?? null);
     $password_db    = $_POST['password'] ?? null;
     $date_of_birth  = $_POST['date_of_birth'] ?? null;
-    $license_expiry = $_POST['license_expiry'] ?? null; // Bagong field
+    $license_expiry = $_POST['license_expiry'] ?? null;
     $gender         = $_POST['gender'] ?? null;
     $email          = $_POST['email'] ?? null;
     $phone          = $_POST['phone_number'] ?? null;
@@ -37,21 +39,19 @@ try {
     $qr_token = "LTO-" . strtoupper(bin2hex(random_bytes(4)));
 
     // 1. INSERT SA CLIENTS TABLE
-    // Tandaan: Ginamit ko ang 'lto_system.clients' base sa code mo kanina. 
-    // Siguraduhin na nage-exist ang 'lto_system' na database sa server mo.
     $sql = "INSERT INTO lto_system.clients 
     (fullname, license_no, email, phone_number, qr_token, profile_path, face_data, password, date_of_birth, license_expiry, gender, finger_data, qr_image, reg_date)
     VALUES 
     (:fullname, :license, :email, :phone, :token, :profile, :face, :password, :dob, :expiry, :gender, :finger, :qr_img, NOW())";
 
-    $stmt = $conn->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':fullname' => $fullname,
         ':license'  => $license_no,
         ':email'    => $email,
         ':phone'    => $phone,
         ':token'    => $qr_token,
-        ':profile'  => $face_data, // Default profile pic
+        ':profile'  => $face_data,
         ':face'     => $face_data,
         ':password' => $password_db,
         ':dob'      => $date_of_birth,
@@ -61,7 +61,7 @@ try {
         ':qr_img'   => $qr_image
     ]);
 
-    $new_user_id = $conn->lastInsertId();
+    $new_user_id = $pdo->lastInsertId();
 
     // 2. AUTO-SYNC VIOLATIONS (lto_system database)
     $syncSql = "UPDATE lto_system.violations 
@@ -71,7 +71,7 @@ try {
                 WHERE TRIM(license_no) = :license
                 AND client_id IS NULL";
     
-    $syncStmt = $conn->prepare($syncSql);
+    $syncStmt = $pdo->prepare($syncSql);
     $syncStmt->execute([
         ':user_id'  => $new_user_id,
         ':fullname' => $fullname,
@@ -86,7 +86,7 @@ try {
                 WHERE TRIM(license_no) = :license
                 AND client_id IS NULL";
     
-    $conn->prepare($syncApp)->execute([
+    $pdo->prepare($syncApp)->execute([
         ':user_id'  => $new_user_id,
         ':fullname' => $fullname,
         ':license'  => $license_no
@@ -99,7 +99,6 @@ try {
     ]);
 
 } catch(PDOException $e) {
-    // Ito ang magsasabi kung ano ang mali sa SQL mo (e.g. missing column)
     http_response_code(500);
     echo json_encode([
         "status" => "error", 
