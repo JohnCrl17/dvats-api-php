@@ -11,16 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 try {
-    // ✅ FIX: Use db_connection.php instead of hardcoded localhost
+    // ✅ FIX: Use db_connection.php (MySQLi)
     include 'db_connection.php';
-    
-    // Convert MySQLi to PDO for this script
-    $pdo = new PDO(
-        "mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME') . ";port=" . getenv('DB_PORT'),
-        getenv('DB_USER'),
-        getenv('DB_PASS')
-    );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Kunin ang data mula sa POST request
     $fullname       = $_POST['fullname'] ?? null;
@@ -38,59 +30,33 @@ try {
     // Generate Token
     $qr_token = "LTO-" . strtoupper(bin2hex(random_bytes(4)));
 
-    // 1. INSERT SA CLIENTS TABLE
-    $sql = "INSERT INTO lto_system.clients 
-    (fullname, license_no, email, phone_number, qr_token, profile_path, face_data, password, date_of_birth, license_expiry, gender, finger_data, qr_image, reg_date)
-    VALUES 
-    (:fullname, :license, :email, :phone, :token, :profile, :face, :password, :dob, :expiry, :gender, :finger, :qr_img, NOW())";
-
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ':fullname' => $fullname,
-        ':license'  => $license_no,
-        ':email'    => $email,
-        ':phone'    => $phone,
-        ':token'    => $qr_token,
-        ':profile'  => $face_data,
-        ':face'     => $face_data,
-        ':password' => $password_db,
-        ':dob'      => $date_of_birth,
-        ':expiry'   => $license_expiry,
-        ':gender'   => $gender,
-        ':finger'   => $finger_data,
-        ':qr_img'   => $qr_image
-    ]);
-
-    $new_user_id = $pdo->lastInsertId();
-
-    // 2. AUTO-SYNC VIOLATIONS (lto_system database)
-    $syncSql = "UPDATE lto_system.violations 
-                SET client_id = :user_id, 
-                    is_registered = 1,
-                    driver_name = :fullname
-                WHERE TRIM(license_no) = :license
-                AND client_id IS NULL";
+    // 1. INSERT SA CLIENTS TABLE (MySQLi version)
+    $stmt = $conn->prepare("INSERT INTO lto_system.clients 
+        (fullname, license_no, email, phone_number, qr_token, profile_path, face_data, password, date_of_birth, license_expiry, gender, finger_data, qr_image, reg_date)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
     
-    $syncStmt = $pdo->prepare($syncSql);
-    $syncStmt->execute([
-        ':user_id'  => $new_user_id,
-        ':fullname' => $fullname,
-        ':license'  => $license_no
-    ]);
-
-    // 3. AUTO-SYNC APPREHENSIONS (dvats_db database)
-    $syncApp = "UPDATE dvats_db.apprehensions 
-                SET client_id = :user_id, 
-                    is_registered = 1,
-                    driver_name = :fullname
-                WHERE TRIM(license_no) = :license
-                AND client_id IS NULL";
+    $stmt->bind_param("sssssssssssss", 
+        $fullname, $license_no, $email, $phone, $qr_token, 
+        $face_data, $face_data, $password_db, $date_of_birth, 
+        $license_expiry, $gender, $finger_data, $qr_image
+    );
     
-    $pdo->prepare($syncApp)->execute([
-        ':user_id'  => $new_user_id,
-        ':fullname' => $fullname,
-        ':license'  => $license_no
-    ]);
+    $stmt->execute();
+    $new_user_id = $conn->insert_id;
+
+    // 2. AUTO-SYNC VIOLATIONS
+    $stmt2 = $conn->prepare("UPDATE lto_system.violations 
+                SET client_id = ?, is_registered = 1, driver_name = ?
+                WHERE TRIM(license_no) = ? AND client_id IS NULL");
+    $stmt2->bind_param("iss", $new_user_id, $fullname, $license_no);
+    $stmt2->execute();
+
+    // 3. AUTO-SYNC APPREHENSIONS
+    $stmt3 = $conn->prepare("UPDATE dvats_db.apprehensions 
+                SET client_id = ?, is_registered = 1, driver_name = ?
+                WHERE TRIM(license_no) = ? AND client_id IS NULL");
+    $stmt3->bind_param("iss", $new_user_id, $fullname, $license_no);
+    $stmt3->execute();
 
     echo json_encode([
         "status" => "success", 
@@ -98,17 +64,11 @@ try {
         "message" => "Account created and violations synced successfully!"
     ]);
 
-} catch(PDOException $e) {
-    http_response_code(500);
-    echo json_encode([
-        "status" => "error", 
-        "message" => "Database Error: " . $e->getMessage()
-    ]);
 } catch(Exception $e) {
     http_response_code(500);
     echo json_encode([
         "status" => "error", 
-        "message" => "System Error: " . $e->getMessage()
+        "message" => "Database Error: " . $e->getMessage()
     ]);
 }
 ?>
