@@ -11,31 +11,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check kung may file na inupload
     if (isset($_FILES['profile_image']) && $client_id && $client_id !== "undefined") {
         
-        $target_dir = "uploads/profiles/";
+        // ✅ FIX: Use absolute path with __DIR__
+        $target_dir = __DIR__ . "/uploads/profiles/";
         if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
+            if (!mkdir($target_dir, 0755, true)) {
+                echo json_encode(["success" => false, "message" => "Failed to create directory"]);
+                exit;
+            }
         }
 
-        $file_extension = pathinfo($_FILES["profile_image"]["name"], PATHINFO_EXTENSION);
+        // ✅ Check if writable
+        if (!is_writable($target_dir)) {
+            echo json_encode(["success" => false, "message" => "Directory not writable"]);
+            exit;
+        }
+
+        $file_extension = strtolower(pathinfo($_FILES["profile_image"]["name"], PATHINFO_EXTENSION));
+        // ✅ Only allow image files
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        if (!in_array($file_extension, $allowed)) {
+            echo json_encode(["success" => false, "message" => "Invalid file type"]);
+            exit;
+        }
+
         $new_filename = "driver_" . $client_id . "_" . time() . "." . $file_extension;
         $target_file = $target_dir . $new_filename;
 
         if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
-            // UPDATE SQL: Siguraduhin na 'client_id' ang column name sa table mo
-            $sql = "UPDATE clients SET profile_path = '$target_file' WHERE client_id = '$client_id'";
+            // ✅ Update database with relative path for web access
+            $db_path = "uploads/profiles/" . $new_filename;
+            $sql = "UPDATE clients SET profile_path = '$db_path' WHERE client_id = '$client_id'";
             
             if ($conn->query($sql)) {
-                // I-return din ang full URL para ma-update agad ang UI
                 echo json_encode([
                     "success" => true, 
-                    "new_path" => $target_file,
+                    "new_path" => $db_path,
                     "message" => "Profile updated successfully"
                 ]);
             } else {
                 echo json_encode(["success" => false, "message" => "Database Update Failed: " . $conn->error]);
             }
         } else {
-            echo json_encode(["success" => false, "message" => "Failed to move file."]);
+            echo json_encode(["success" => false, "message" => "Failed to move file. Check folder permissions."]);
         }
     } else {
         echo json_encode([
